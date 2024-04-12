@@ -42,5 +42,6 @@ jobs:
         name: Release ${{ github.sha }}
         body: |
           Changes in this Release
+          - first release
           - Added new feature
           - Fixed a bug
