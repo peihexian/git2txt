@@ -39,7 +39,7 @@ jobs:
         files: |
           main.go
         tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
+        name: Release ${{ github.sha }}
         body: |
           Changes in this Release
           - Added new feature
