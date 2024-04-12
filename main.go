@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-const source_code_file_extension = ".go|.cpp|.h|.c|.hpp|.java|.py|.js|.ts|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.html|.css|.scss|.less|.json|.xml|.yaml|.yml|.sh|.bat|.php|.lua|.rb|.pl|.swift|.kt|.gradle|.properties|.md|.txt|.conf|.ini|.log|.proto|.sql|.jsp|.asp|.aspx|.php|.jsp|.cs|.ts|.tsx|.jsx|.vue|.php|.less"
+const sourceCodeFileExtension = ".asp|.aspx|.bat|.c|.cc|.conf|.cpp|.cs|.css|.go|.gradle|.h|.hpp|.html|.ini|.java|.js|.json|.jsp|.jsx|.kt|.less|.log|.lua|.md|.php|.pl|.properties|.proto|.py|.rb|.scss|.sh|.sql|.swift|.ts|.tsx|.txt|.vue|.xml|.yaml|.yml"
 
 func main() {
 	/**
@@ -84,7 +84,7 @@ func main() {
 		println("merge error:", err)
 		os.Exit(1)
 	}
-	println("merge success")
+	println("merge success,output file is:", txtFileName)
 }
 
 func clone(url string, directory string) error {
@@ -109,7 +109,7 @@ func merge(directory string, txtFileName string) error {
 	defer file.Close()
 
 	//分割源码文件后缀
-	sourceCodeFileExtensionList := strings.Split(source_code_file_extension, "|")
+	sourceCodeFileExtensionList := strings.Split(sourceCodeFileExtension, "|")
 
 	//遍历本地仓库文件夹下的所有文件
 	err = filepath.Walk(directory, func(path string, info os.FileInfo, err error) error {
