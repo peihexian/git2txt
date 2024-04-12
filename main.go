@@ -15,7 +15,7 @@ func main() {
 	*/
 	//检测命令行有无仓库地址输入参数,如果没有则打印程序用法
 	if len(os.Args) < 4 {
-		println("Usage: git2txt [gitlab url] [directory] [txt file name]")
+		println("Usage: git2txt [github/gitlab url] [directory] [txt file name]")
 		os.Exit(1)
 	}
 	//获取命令行输入的仓库地址
@@ -25,11 +25,11 @@ func main() {
 	txtFileName := os.Args[3]
 
 	//检查仓库地址是否合法
-	if url == "" {
-		println("url is empty")
+	if (url == "") || (len(url) < 4) {
+		println("url is invalid")
 		os.Exit(1)
 	}
-	if url[:4] != "http" && url[:3] != "git" {
+	if (url[:4] != "http") && (url[:3] != "git") {
 		println("url is not a valid url")
 		os.Exit(1)
 	}
